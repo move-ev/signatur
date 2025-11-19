@@ -12,8 +12,11 @@ export default function HomePage() {
         </h1>
         <p className="text-muted-foreground mt-2 max-w-prose text-sm">
           Verwende den Signatur Generator um deine persönliche move Email
-          Signatur zu erstellen. Solltest du Schwierigkeiten haben, sprich bitte
-          das IT Ressort an.
+          Signatur zu erstellen. Solltest du Schwierigkeiten bei der
+          Installation haben,{" "}
+          <span className="font-medium">
+            lies dir bitte die Anleitungen durch.
+          </span>
         </p>
         <Link
           href="/guides"
