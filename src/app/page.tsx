@@ -1,5 +1,7 @@
 import { SignatureForm } from "@/components/signature-form";
 import { Separator } from "@/components/ui/separator";
+import { ArrowRightIcon } from "lucide-react";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
@@ -13,6 +15,12 @@ export default function HomePage() {
           Signatur zu erstellen. Solltest du Schwierigkeiten haben, sprich bitte
           das IT Ressort an.
         </p>
+        <Link
+          href="/guides"
+          className="text-primary hover:text-primary/70 mt-4 mb-8 flex items-center gap-1 text-sm font-medium transition-colors"
+        >
+          Anleitungen <ArrowRightIcon className="size-3.5" />
+        </Link>
       </header>
       <Separator className="mx-auto my-8 max-w-[calc(var(--container-3xl)-4rem)]" />
       <section className="mx-auto w-full max-w-3xl px-8">

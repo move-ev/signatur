@@ -1,5 +1,7 @@
 "use client";
 
+import { downloadSignature } from "@/lib/download-signature";
+import { generateSignature } from "@/lib/generate-signature";
 import { cn } from "@/lib/utils";
 import { useForm } from "@tanstack/react-form";
 import type React from "react";
@@ -45,24 +47,22 @@ export function SignatureForm({
       onSubmit: formSchema,
     },
     onSubmit: async ({ value }) => {
-      toast("You submitted the following values:", {
-        description: (
-          <pre className="bg-code text-code-foreground mt-2 w-[320px] overflow-x-auto rounded-md p-4">
-            <code>{JSON.stringify(value, null, 2)}</code>
-          </pre>
-        ),
+      const signature = generateSignature({
+        name: value.name,
+        position: value.position,
+        username: value.username,
+        phone: value.phone,
+      });
+
+      downloadSignature(signature);
+
+      toast("Deine Signatur wurde erstellt.", {
+        description:
+          "Folge nun der Anleitung um deine Signatur zu installieren.",
         position: "bottom-right",
-        classNames: {
-          content: "flex flex-col gap-2",
-        },
-        style: {
-          "--border-radius": "calc(var(--radius)  + 4px)",
-        } as React.CSSProperties,
       });
     },
   });
-
-  async function onSubmit(data: z.infer<typeof formSchema>) {}
 
   return (
     <form
