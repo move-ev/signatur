@@ -67,11 +67,12 @@ export function SignatureForm({
   return (
     <form
       id="signature-form"
-      onSubmit={(e) => {
+      onSubmit={async (e) => {
         e.preventDefault();
-        form.handleSubmit();
+        await form.handleSubmit();
       }}
       className={cn(className)}
+      {...props}
     >
       <FieldGroup className="grid grid-cols-2 gap-8">
         <form.Field

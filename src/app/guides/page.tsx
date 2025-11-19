@@ -1,4 +1,5 @@
 import { ArrowLeftIcon } from "lucide-react";
+import type { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import Link from "next/link";
 import MailIcon from "../../../public/icon-apple-mail.png";
@@ -33,12 +34,12 @@ export default async function GuidesPage() {
         <ClientCard
           href="#outlook-web"
           label="Outlook (Web)"
-          icon={OutlookIcon}
+          icon={OutlookIcon as StaticImport}
         />
         <ClientCard
           href="#outlook-ios"
           label="Outlook (iOS)"
-          icon={OutlookIcon}
+          icon={OutlookIcon as StaticImport}
         />
         <ClientCard href="#mail-mac" label="Mail (MacOS)" icon={MailIcon} />
       </section>
